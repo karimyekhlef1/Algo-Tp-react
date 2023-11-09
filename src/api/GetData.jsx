@@ -11,7 +11,7 @@ const GetData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiUrl = 'http://localhost:8080/'; 
+        const apiUrl = 'https://algo-tp.onrender.com'; 
         const response = await axios.get(apiUrl);
         setData(response.data);
         setLoading(false);
@@ -22,7 +22,7 @@ const GetData = () => {
       }
 
       try {
-        const apiUrl = 'http://localhost:8080/start';
+        const apiUrl = 'https://algo-tp.onrender.com/start';
         const response = await axios.get(apiUrl);
         setpath(response); 
 
