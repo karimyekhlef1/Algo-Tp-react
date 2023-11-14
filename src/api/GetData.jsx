@@ -12,7 +12,7 @@ const GetData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiUrl = 'http://algo-tp.onrender.com/sites'; 
+        const apiUrl = 'https://algo-tp.onrender.com/sites'; 
         const response = await axios.get(apiUrl);
         setData(response.data);
         setLoading(false);
@@ -23,7 +23,7 @@ const GetData = () => {
       }
 
       try {
-        const apiUrl = 'http://algo-tp.onrender.com/start';
+        const apiUrl = 'https://algo-tp.onrender.com/start';
         const response = await axios.get(apiUrl);
         setpath(response); 
 
