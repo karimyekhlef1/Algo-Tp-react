@@ -10,7 +10,7 @@ export default function Vehicles() {
 
   const fetchData = async () => {
     try {
-      const apiUrl = "http://algo-tp.onrender.com/vehicles";
+      const apiUrl = "https://algo-tp.onrender.com/vehicles";
       const response = await axios.get(apiUrl);
       console.log(response.data.distanceTotalALLvehicles);
       setData(response.data.distanceTotalALLvehicles);
