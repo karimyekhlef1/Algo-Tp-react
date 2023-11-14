@@ -10,6 +10,8 @@ import ReactFlow, {
 } from "reactflow";
 import "reactflow/dist/style.css";
 import CustomNode from "./CustomNode";
+import Vehicles from "./Vehicles";
+import Button from "../elements/Button";
 
 
 const nodeTypes = {
@@ -75,7 +77,7 @@ function Flow({Allsites , path }) {
       data: {
         label: `S:${item.site ? item.site : item.id?.toString()}`,
       },
-      position: { x: item.valueX *20, y: item.valueY*20  },
+      position: { x: item.valueX *50, y: item.valueY*50},
     };
   });
 
@@ -106,8 +108,7 @@ function Flow({Allsites , path }) {
       <div
         style={{
           Background: " rgba(255,255,255,0.5)",
-          zIndex: "1000",
-
+          zIndex:"900",
           backdropFilter: " blur(10px)",
           border: "1px solid rgba(255,255,255,0.25)",
           position: "fixed",
@@ -118,11 +119,14 @@ function Flow({Allsites , path }) {
           alignItems: "center",
           padding:"10px"
         }}
-        onClick={Handlestart}
       >
         {start ? (
           <h2
+        onClick={Handlestart}
+
             style={{
+              cursor:"pointer",
+
               width: "30%",
               backgroundColor: "red",
               textAlign: "center",
@@ -136,7 +140,11 @@ function Flow({Allsites , path }) {
           </h2>
         ) : (
           <h2
+        onClick={Handlestart}
+
+          // className=" text-red-600 m-56"
             style={{
+              cursor:"pointer",
               width: "30%",
               backgroundColor: "green",
               textAlign: "center",
@@ -158,13 +166,16 @@ function Flow({Allsites , path }) {
 
 
         </div>
-
-        
- 
       <ReactFlow  nodes={nodes} edges={edges}>
         <Background />
         <Controls />
       </ReactFlow>
+
+
+      <Button start={start}/>
+
+  
+
     </div>
   );
 }

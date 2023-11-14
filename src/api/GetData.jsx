@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Flow from '../component/Flow';
+import Loader from '../elements/Loader';
 
 const GetData = () => {
   const [data, setData] = useState(null);
@@ -11,7 +12,7 @@ const GetData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiUrl = 'https://algo-tp.onrender.com'; 
+        const apiUrl = 'http://localhost:8080/sites'; 
         const response = await axios.get(apiUrl);
         setData(response.data);
         setLoading(false);
@@ -22,7 +23,7 @@ const GetData = () => {
       }
 
       try {
-        const apiUrl = 'https://algo-tp.onrender.com/start';
+        const apiUrl = 'http://localhost:8080/start';
         const response = await axios.get(apiUrl);
         setpath(response); 
 
@@ -37,7 +38,7 @@ const GetData = () => {
   return (
     <div>
       {loading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : error ? (
         <p>Error: {error.message}</p>
       ) : data && data.data ? (
